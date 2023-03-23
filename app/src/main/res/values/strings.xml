@@ -6,4 +6,17 @@
     <string name="meals">Plats</string>
     <string name="desert">Desserts</string>
     <string name="welcome">Bienvenue chez</string>
+    <string name="titleCat" />
+    <string-array name="dishes">
+        <item>Entree 1</item>
+        <item>Entree 2</item>
+        <item>Entree 3</item>
+        <item>Entree 4</item>
+        <item>Entree 5</item>
+        <item>Repas 1</item>
+        <item>Repas 2</item>
+        <item>Repas 3</item>
+        <item>Dessert 1</item>
+        <item>Dessert 2</item>
+    </string-array>
 </resources>

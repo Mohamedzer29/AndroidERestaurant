@@ -3,16 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".DetailsActivity">
 
     <TextView
-        android:id="@+id/starters_title"
+        android:id="@+id/DishTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:text="@string/starters"
-        android:textColor="#2196F3"
-        android:textSize="48sp"
+        android:layout_marginTop="32dp"
+        android:text="@string/titleCat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
