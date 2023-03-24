@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2F00BCD4"
     tools:context=".HomeActivity">
 
     <TextView
@@ -11,8 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
+        android:fontFamily="cursive"
         android:text="@string/hometitle_real"
-        android:textColor="#2196F3"
+        android:textColor="#00695C"
         android:textSize="54sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,46 +26,53 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
+        android:backgroundTint="#009587"
+        android:fontFamily="casual"
         android:text="@string/starters"
+        android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hometitle"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/hometitle" />
 
     <Button
         android:id="@+id/meals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
+        android:backgroundTint="#009486"
+        android:fontFamily="casual"
         android:text="@string/meals"
+        android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="@+id/starters"
         app:layout_constraintStart_toStartOf="@+id/starters"
-        app:layout_constraintTop_toBottomOf="@+id/starters"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/starters" />
 
     <Button
         android:id="@+id/desert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
+        android:backgroundTint="#009486"
+        android:backgroundTintMode="add"
+        android:fontFamily="casual"
         android:text="@string/desert"
+        android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="@+id/meals"
         app:layout_constraintStart_toStartOf="@+id/meals"
-        app:layout_constraintTop_toBottomOf="@+id/meals"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/meals" />
 
     <TextView
         android:id="@+id/Welcome"
         android:layout_width="382dp"
         android:layout_height="0dp"
         android:layout_marginTop="22dp"
-        android:layout_marginEnd="-310dp"
+        android:layout_marginEnd="-330dp"
         android:ems="10"
         android:text="@string/welcome"
-        android:textColor="#3F51B5"
+        android:textColor="#009688"
         android:textSize="38sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toStartOf="@+id/hometitle"

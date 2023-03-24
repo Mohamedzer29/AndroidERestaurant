@@ -13,5 +13,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        tools:srcCompat="@drawable/pngtree_toast_bread_food_bread_cake_png_image_514459" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@
     <string name="btn_minus">-</string>
     <string name="IngredientsText">Ingrédients:</string>
     <string name="TotalText">Total : 0$</string>
+    <string name="quantity" />
     <string-array name="items">
         <item>Entrée 1</item>
         <item>Entrée 2</item>

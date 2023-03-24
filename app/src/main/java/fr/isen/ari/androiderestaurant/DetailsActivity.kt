@@ -14,6 +14,7 @@ import java.io.File
 class DetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
     private lateinit var dish: Items
+    private var quantity:Float = 0.0F
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,12 +52,14 @@ class DetailsActivity : AppCompatActivity() {
     }
     @SuppressLint("SetTextI18n")
     fun clickOnButtonPlus() {
-        binding.QuantityDish.text = (binding.QuantityDish.text.toString().toInt() + 1).toString()
+        quantity++
+        binding.QuantityDish.text = quantity.toString()
     }
 
     private fun clickOnButtonMinus() {
-        if (binding.QuantityDish.text.toString().toInt() > 0) {
-            binding.QuantityDish.text = (binding.QuantityDish.text.toString().toInt() - 1).toString()
+        if (quantity > 0) {
+            quantity--
+            binding.QuantityDish.text = (quantity).toString()
         }
         else {
             binding.QuantityDish.text = "0"
@@ -65,20 +68,19 @@ class DetailsActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     fun refreshTotalPrice() {
-        binding.ButtonTotal.text = "Total : " + (binding.QuantityDish.text.toString().toInt() * (dish.prices[0].price?.toInt()
-            ?: 999)).toString() + " €"
+        binding.ButtonTotal.text = "Total : " + (quantity * (dish.prices[0].price?.toFloat()!!)).toString() + " €"
     }
 
     private fun addToJSON() {
         val file = File(filesDir, "cart.json")
         val jsonCart = JSONObject()
         jsonCart.put("name", dish.nameFr)
-        val price = binding.QuantityDish.text.toString().toInt() * (dish.prices[0].price?.toInt()?: 999)
+        val price = quantity * (dish.prices[0].price?.toFloat()!!)
         jsonCart.put("price", price)
         val cart = GsonBuilder().setPrettyPrinting().create().toJson(jsonCart)
         file.writeText(cart)
 
-        val notif = Snackbar.make(binding.root, "Commande mise à jour", Snackbar.LENGTH_LONG)
-        notif.show()
+        Snackbar.make(binding.root, "Commande prise en compte", Snackbar.LENGTH_LONG).show()
     }
 }
+

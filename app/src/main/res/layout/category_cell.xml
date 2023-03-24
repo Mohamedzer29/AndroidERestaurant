@@ -10,7 +10,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#009587"
+        android:backgroundTint="#009486">
 
         <TextView
             android:id="@+id/dishName"
@@ -18,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:fontFamily="casual"
             android:text="@string/item"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -51,7 +54,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@drawable/pngtree_toast_bread_food_bread_cake_png_image_514459" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
