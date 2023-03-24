@@ -3,13 +3,18 @@ package fr.isen.ari.androiderestaurant
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
-class CustomAdapter(val dishes: ArrayList<String>) : RecyclerView.Adapter<CustomAdapter.CategoryViewHolder>() {
+class CustomAdapter(val dishes: ArrayList<String>, val onItemClickListener: (DishTitle: Items) -> Unit) : RecyclerView.Adapter<CustomAdapter.CategoryViewHolder>() {
 
     class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val dishName : TextView = view.findViewById(R.id.dishName)
+        val price: TextView = view.findViewById(R.id.priceView)
+        val images: ImageView = view.findViewById(R.id.imageView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
@@ -17,14 +22,23 @@ class CustomAdapter(val dishes: ArrayList<String>) : RecyclerView.Adapter<Custom
         print(dishes)
         return CategoryViewHolder(view)
     }
-    override fun getItemCount(): Int = dishes.size
+    override fun getItemCount(): Int{
+        return dishes.size
+    }
 
     override fun onBindViewHolder (holder: CategoryViewHolder, position: Int) {
         val dish = dishes[position]
         holder.dishName.text = dish
 
         holder.itemView.setOnClickListener{
+            onItemClickListener(dish)
+        }
 
+        holder.price.text = dish.prices[0].price + "$"
+
+        val foodImage = dish.images[0]
+        if (foodImage.isNotEmpty()){
+            Picasso.get().load(foodImage).resize(150, 150).into(holder.images)
         }
 
     }

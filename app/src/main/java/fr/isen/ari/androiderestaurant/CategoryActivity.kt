@@ -1,5 +1,6 @@
 package fr.isen.ari.androiderestaurant
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,12 @@ class CategoryActivity : AppCompatActivity() {
 
         val dishes = arrayListOf<String>()
         binding.recyclerCategory.layoutManager = LinearLayoutManager(this)
-        binding.recyclerCategory.adapter = CustomAdapter(dishes)
+
+        binding.recyclerCategory.adapter = CustomAdapter(arrayListOf()){
+            val intent = Intent(this@CategoryActivity, DetailsActivity::class.java)
+            intent.putExtra("item", it)
+            startActivity(intent)
+        }
     }
 
 }

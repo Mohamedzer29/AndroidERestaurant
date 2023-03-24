@@ -7,6 +7,11 @@
     <string name="desert">Desserts</string>
     <string name="welcome">Bienvenue chez</string>
     <string name="titleCat" />
+    <string name="item" />
+    <string name="btn_plus">+</string>
+    <string name="btn_minus">-</string>
+    <string name="IngredientsText">Ingrédients:</string>
+    <string name="TotalText">Total : 0$</string>
     <string-array name="dishes">
         <item>Entree 1</item>
         <item>Entree 2</item>
