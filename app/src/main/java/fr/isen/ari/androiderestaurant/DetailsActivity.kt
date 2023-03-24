@@ -28,17 +28,17 @@ class DetailsActivity : AppCompatActivity() {
             binding.IngredientsText.text = binding.IngredientsText.text.toString() + i.nameFr + ", "
         }
 
-        binding.btnPlus.setOnClickListener() {
+        binding.ButtonPlus.setOnClickListener() {
             clickOnButtonPlus()
             refreshTotalPrice()
         }
 
-        binding.btnMinus.setOnClickListener {
+        binding.ButtonMinus.setOnClickListener {
+            clickOnButtonMinus()
             refreshTotalPrice()
-            addToJSON()
         }
 
-        binding.TotalBtn.setOnClickListener {
+        binding.ButtonTotal.setOnClickListener {
             refreshTotalPrice()
             addToJSON()
         }
@@ -65,7 +65,7 @@ class DetailsActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     fun refreshTotalPrice() {
-        binding.TotalBtn.text = "Total : " + (binding.QuantityDish.text.toString().toInt() * (dish.prices[0].price?.toInt()
+        binding.ButtonTotal.text = "Total : " + (binding.QuantityDish.text.toString().toInt() * (dish.prices[0].price?.toInt()
             ?: 999)).toString() + " €"
     }
 
