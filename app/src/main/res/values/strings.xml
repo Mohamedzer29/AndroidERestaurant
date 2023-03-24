@@ -13,6 +13,7 @@
     <string name="IngredientsText">Ingrédients:</string>
     <string name="TotalText">Total : 0$</string>
     <string name="quantity" />
+    <string name="quantity_round">0</string>
     <string-array name="items">
         <item>Entrée 1</item>
         <item>Entrée 2</item>

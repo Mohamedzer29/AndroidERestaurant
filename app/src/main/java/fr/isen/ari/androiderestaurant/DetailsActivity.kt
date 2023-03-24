@@ -1,20 +1,33 @@
 package fr.isen.ari.androiderestaurant
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.GsonBuilder
 import fr.isen.ari.androiderestaurant.databinding.ActivityDetailsBinding
 import org.json.JSONObject
 import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.util.*
 
 @Suppress("DEPRECATION")
 class DetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
     private lateinit var dish: Items
     private var quantity:Float = 0.0F
+    private var absTopSubMenus: Menu? = null
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        absTopSubMenus = menu
+        menuInflater.inflate(R.menu.menu, menu)
+
+        return true
+    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +57,8 @@ class DetailsActivity : AppCompatActivity() {
             addToJSON()
         }
 
+
+
         val viewPager = binding.viewPager2
         val adapter = CategoryDishAdapter(dish.images)
 
@@ -71,16 +86,30 @@ class DetailsActivity : AppCompatActivity() {
         binding.ButtonTotal.text = "Total : " + (quantity * (dish.prices[0].price?.toFloat()!!)).toString() + " €"
     }
 
+    @SuppressLint("SetTextI18n")
     private fun addToJSON() {
         val file = File(filesDir, "cart.json")
         val jsonCart = JSONObject()
         jsonCart.put("name", dish.nameFr)
         val price = quantity * (dish.prices[0].price?.toFloat()!!)
         jsonCart.put("price", price)
-        val cart = GsonBuilder().setPrettyPrinting().create().toJson(jsonCart)
-        file.writeText(cart)
+        var jsonString = jsonCart.toString()
+        val fileOutputStream = FileOutputStream(file)
+        fileOutputStream.write(jsonString.toByteArray())
+        fileOutputStream.close()
 
         Snackbar.make(binding.root, "Commande prise en compte", Snackbar.LENGTH_LONG).show()
+        val fileInputStream = FileInputStream(file)
+        var jsonStringInput = Scanner(fileInputStream).useDelimiter("\\A").next()
+        val jsonObject = JSONObject(jsonStringInput)
+        val count = jsonObject.length()
+        fileInputStream.close()
+        val quantityRound = findViewById<TextView>(R.id.quantity_round)
+        quantityRound.text = (count).toString()
+        quantityRound.setOnClickListener{
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
 
