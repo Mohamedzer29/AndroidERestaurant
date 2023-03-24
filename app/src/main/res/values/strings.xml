@@ -12,16 +12,22 @@
     <string name="btn_minus">-</string>
     <string name="IngredientsText">Ingrédients:</string>
     <string name="TotalText">Total : 0$</string>
-    <string-array name="dishes">
-        <item>Entree 1</item>
-        <item>Entree 2</item>
-        <item>Entree 3</item>
-        <item>Entree 4</item>
-        <item>Entree 5</item>
-        <item>Repas 1</item>
-        <item>Repas 2</item>
-        <item>Repas 3</item>
-        <item>Dessert 1</item>
-        <item>Dessert 2</item>
+    <string-array name="tab_starters">
+        <item>Salade</item>
+        <item>Soupes</item>
+        <item>Tapas</item>
+    </string-array>
+    <string-array name="tab_mains">
+        <item>Hamburger</item>
+        <item>Steack et Frites</item>
+        <item>Pizza</item>
+        <item>Pâtes Carbonara</item>
+        <item>Poisson</item>
+    </string-array>
+    <string-array name="tab_desserts">
+        <item>Flan</item>
+        <item>Brownie</item>
+        <item>Café gourmand</item>
+        <item>Crêpe au Nutella</item>
     </string-array>
 </resources>

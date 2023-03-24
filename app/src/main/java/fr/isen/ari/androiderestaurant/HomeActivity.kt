@@ -3,6 +3,9 @@ package fr.isen.ari.androiderestaurant
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Window
+import android.widget.TextView
 import fr.isen.ari.androiderestaurant.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -11,29 +14,35 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
+        supportActionBar?.hide()
+
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.starters.setOnClickListener {
-            val intent = Intent(this, CategoryActivity::class.java)
-            intent.putExtra("category", getString(R.string.starters))
-            startActivity(intent)
+            switchActivity(binding.starters)
         }
 
         binding.meals.setOnClickListener {
-            val intent = Intent(this, CategoryActivity::class.java)
-            intent.putExtra("category", getString(R.string.meals))
-            startActivity(intent)
+            switchActivity(binding.meals)
         }
 
         binding.desert.setOnClickListener {
-            val intent = Intent(this, CategoryActivity::class.java)
-            intent.putExtra("category", getString(R.string.desert))
-            startActivity(intent)
+            switchActivity(binding.desert)
         }
+    }
 
-        //binding.i
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("Destroy", "Activity $this has been destroyed")
+    }
 
+    private fun switchActivity(textView: TextView){
+        val intent = Intent(this@HomeActivity, CategoryActivity::class.java)
+        intent.putExtra("titleCategory", textView.text)
+        startActivity(intent)
     }
 
 }
